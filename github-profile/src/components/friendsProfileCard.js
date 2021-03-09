@@ -1,6 +1,6 @@
 //TECH IMPORTS 
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //STYLING IMPORTS
 import "../index.css";
 //COMPONENT IMPORTS 
@@ -8,6 +8,10 @@ import { FOLLOWERS_BASE_URL, MYFOLLOWERS_KEY } from "../constants/constants";
 
 function FriendsProfileCard (props){
 
+    //SETTING COMPONENT STATE FOR ENTRY FORM THAT CHANGES DISPLAYED FRIENDS BASED ON ENTRY
+    const [loginEntry, setLoginEntry]=useState("");
+
+    //PROP IMPORTS 
     const { friends, setFriends }=props;
 
     //USES HELPER FUNCTION IMPORTED THROUGH PROPS TO SET FRIENDS RECEIVEd FROM API INTO STATE UPON COMPONENT MOUNT
@@ -21,10 +25,36 @@ function FriendsProfileCard (props){
             console.log("FRIENDSPROFILECARD COMP, FAILED GETTING FRIENDS", err);
         })
     },[])
+
+    const handleEntryFormChange = (event)=>{
+        const {name, value}=event.target;
+        setLoginEntry(value);
+    }
+
+    const handleEntryFormSubmit=(event)=>{
+        event.preventDefault();
+        axios.get(`${FOLLOWERS_BASE_URL}/${loginEntry}/followers`)
+            .then((res)=>{
+                console.log("FRIENDSPROFILECARD COMP, SUCCEEDED GETTING FRIENDS BASED ON ENTRY", res);
+                setFriends(res.data);
+            })
+            .catch((err)=>{
+                console.log("FRIENDSPROFILECARD COMP, FAILED GETTING FRIENDS BASED ON ENTRY", err);
+            })
+        
+    }
   
 
  return (
      <div>
+         <div className="loginEntryForm">
+         <form onSubmit={handleEntryFormSubmit} >
+             <label htmlFor="loginEntry">Enter A Username To Display Friends For:
+                <input name="loginEntry" id="loginEntry" placeholder="Enter A Username" value={loginEntry} onChange={handleEntryFormChange} />
+             </label>
+             <button>Submit Username</button>
+         </form>
+         </div>
      <div className="friendsContainer">
          {friends.map((friend)=>{
              return (

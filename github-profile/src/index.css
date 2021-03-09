@@ -52,3 +52,22 @@ html {
 h2 {
   font-size: 2rem;
 }
+
+.loginEntryForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+}
+label, input {
+  margin: 1rem;
+}
+input {
+  border-radius: 1rem;
+  border: .65rem ridge black;
+}
+button {
+  border-radius: 1rem;
+  border: .65rem ridge black;
+  background-color: white;
+}

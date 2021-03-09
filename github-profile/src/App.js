@@ -12,7 +12,6 @@ class App extends React.Component {
   state={
     myProfile: [],
     friends: [],
-    searchLoginEntry: "",
   }
 
   //LOADS MY PROFILE INFORMATION UPON MOUNT
