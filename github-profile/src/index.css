@@ -13,10 +13,14 @@ html {
 /* SPECIFIC STYLING */
 
 .profileCardMainDiv {
-  box-shadow: 1rem 1rem 2rem 1rem #FAD961;
-  background-color: white;
-  padding: 20rem;
-  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1rem 1rem 1rem 1rem black;
+  background-color: #FAD961;
+  width: 50%;
   font-size: 1.7rem;
-  color: #FAD961;
+  color: black;
+  position: relative;
+  left: 28rem
 }
