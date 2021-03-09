@@ -36,12 +36,20 @@ class App extends React.Component {
     }
   }
 
+  //HELPER FUNCTION GETTING PASSED TO FRIENDS COMPONENT, FOR SETTING FRIENDS STATE
+  setFriends=(friendsData)=>{
+    this.setState({
+      ...this.state, friends: friendsData
+    })
+  }
+
   render(){
     return (
       <div className="catchAllContainer">
         <h1>@AhmedSeragCodes On Github</h1>
         <ProfileCard myProfile={this.state.myProfile} />
-        <FriendsProfileCard friends={this.state.friends} />
+        <h2>My Github Friends</h2>
+        <FriendsProfileCard friends={this.state.friends} setFriends={this.setFriends} />
       </div>
     )
   }

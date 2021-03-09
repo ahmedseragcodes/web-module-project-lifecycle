@@ -12,6 +12,12 @@ html {
 
 /* SPECIFIC STYLING */
 
+.catchAllContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .profileCardMainDiv {
   display: flex;
   flex-direction: column;
@@ -21,8 +27,14 @@ html {
   width: 50%;
   font-size: 1.7rem;
   color: black;
-  position: relative;
-  left: 28rem
+  margin: 1rem;
+}
+
+.friendsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .friendsProfileCard {
@@ -34,6 +46,9 @@ html {
   width: 50%;
   font-size: 1.7rem;
   color: black;
-  position: relative;
-  left: 28rem
+  margin: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
 }
