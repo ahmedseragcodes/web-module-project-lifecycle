@@ -27,7 +27,7 @@ function FriendsProfileCard (props){
     },[])
 
     const handleEntryFormChange = (event)=>{
-        const {name, value}=event.target;
+        const {value}=event.target;
         setLoginEntry(value);
     }
 
