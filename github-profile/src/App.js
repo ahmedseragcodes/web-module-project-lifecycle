@@ -1,17 +1,18 @@
 //TECH IMPORTS 
 import React from "react";
+import axios from "axios";
 //STYLING IMPORTS 
 import "./index.css";
 //COMPONENT IMPORTS
 import ProfileCard from "./components/profileCard";
 import { BASE_URL, API_KEY } from "./constants/constants";
-import axios from "axios";
+import FriendsProfileCard from "./components/friendsProfileCard";
 
 class App extends React.Component {
   state={
     myProfile: [],
     friends: [],
-    signInForm: "",
+    searchLoginEntry: "",
   }
 
   //LOADS MY PROFILE INFORMATION UPON MOUNT
@@ -28,11 +29,19 @@ class App extends React.Component {
       })
   }
 
+  //ALERTS WHEN MY PROFILE GETS A NEW FOLLOWER VIA COMPONENT DID UPDATE AND PREVIOUS STATE
+  componentDidUpdate(prevProps, prevState){
+    if (prevState.friends.length < this.state.friends.length){
+      alert("You've got a new follower(s) on Github!")
+    }
+  }
+
   render(){
     return (
       <div className="catchAllContainer">
         <h1>@AhmedSeragCodes On Github</h1>
         <ProfileCard myProfile={this.state.myProfile} />
+        <FriendsProfileCard friends={this.state.friends} />
       </div>
     )
   }
