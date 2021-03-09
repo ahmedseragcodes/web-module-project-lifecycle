@@ -28,12 +28,12 @@ class App extends React.Component {
       })
   }
 
-  //ALERTS WHEN MY PROFILE GETS A NEW FOLLOWER VIA COMPONENT DID UPDATE AND PREVIOUS STATE
-  componentDidUpdate(prevProps, prevState){
-    if (prevState.friends.length < this.state.friends.length){
-      alert("You've got a new follower(s) on Github!")
-    }
-  }
+  //ALERTS WHEN MY PROFILE GETS A NEW FOLLOWER VIA COMPONENT DID UPDATE AND PREVIOUS STATE, COMMENTED OUT FOR NOW
+  // componentDidUpdate(prevProps, prevState){
+  //   if (prevState.friends.length < this.state.friends.length){
+  //     alert("You've got a new follower(s) on Github!")
+  //   }
+  // }
 
   //HELPER FUNCTION GETTING PASSED TO FRIENDS COMPONENT, FOR SETTING FRIENDS STATE
   setFriends=(friendsData)=>{
@@ -48,7 +48,7 @@ class App extends React.Component {
         <h1>@AhmedSeragCodes On Github</h1>
         <ProfileCard myProfile={this.state.myProfile} />
         <h2>My Github Friends</h2>
-        <FriendsProfileCard friends={this.state.friends} setFriends={this.setFriends} />
+        <FriendsProfileCard friends={this.state.friends} setFriends={this.setFriends} myProfile={this.state.myProfile}/>
       </div>
     )
   }

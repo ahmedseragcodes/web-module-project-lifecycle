@@ -12,7 +12,7 @@ function FriendsProfileCard (props){
     const [loginEntry, setLoginEntry]=useState("");
 
     //PROP IMPORTS 
-    const { friends, setFriends }=props;
+    const { friends, setFriends, myProfile }=props;
 
     //USES HELPER FUNCTION IMPORTED THROUGH PROPS TO SET FRIENDS RECEIVEd FROM API INTO STATE UPON COMPONENT MOUNT
     useEffect(()=>{
@@ -24,7 +24,7 @@ function FriendsProfileCard (props){
         .catch((err)=>{
             console.log("FRIENDSPROFILECARD COMP, FAILED GETTING FRIENDS", err);
         })
-    },[])
+    },[myProfile, setFriends])
 
     const handleEntryFormChange = (event)=>{
         const {value}=event.target;
