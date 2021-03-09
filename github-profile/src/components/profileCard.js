@@ -4,8 +4,6 @@ import React from "react";
 //STYLING IMPORTS
 import "../index.css";
 
-//COMPONENT IMPORTS
-import { BASE_URL, API_KEY } from "../constants/constants";
 
 export default function ProfileCard (props){
 
